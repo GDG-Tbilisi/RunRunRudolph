@@ -40,6 +40,7 @@ public class Game extends Activity
   		return false;
 	}
 
+<<<<<<< HEAD
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
 		super.onCreateOptionsMenu(menu);
@@ -72,4 +73,6 @@ public class Game extends Activity
 //		return false;
 //	}
 
+=======
+>>>>>>> 2cc57ee9c49d10380eeeab06f5d95ce311e6e152
 }
