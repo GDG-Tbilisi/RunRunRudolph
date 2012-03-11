@@ -26,9 +26,11 @@ public class Game extends Activity
 
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
+		if(event.getAction()==1){
 		
 		result.setText("Number of steps made: " + counter);
-		counter++;
+		counter++; 
+		}
 		
 		
   		return false;
