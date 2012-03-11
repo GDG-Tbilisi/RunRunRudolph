@@ -36,12 +36,4 @@ public class Game extends Activity
   		return false;
 	}
 
-
-//	public boolean onTouch(View v, MotionEvent event) {
-//		// TODO Auto-generated method stub
-//		
-//		
-//		return false;
-//	}
-
 }
