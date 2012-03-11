@@ -22,11 +22,8 @@ public class Game extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
 		result = (TextView) findViewById(R.id.result);
-      //  result.setOnTouchListener(this);
-	  	result.setText("Number of steps made: " + counter);
-        
+	  	result.setText("Number of steps made: " + counter);  
 	}
-	
 
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
@@ -39,8 +36,6 @@ public class Game extends Activity
 		
   		return false;
 	}
-
-<<<<<<< HEAD
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
 		super.onCreateOptionsMenu(menu);
@@ -62,17 +57,6 @@ public class Game extends Activity
 			
 		default:
 			return super.onOptionsItemSelected(item);
-
 		}
 	}
-
-//	public boolean onTouch(View v, MotionEvent event) {
-//		// TODO Auto-generated method stub
-//		
-//		
-//		return false;
-//	}
-
-=======
->>>>>>> 2cc57ee9c49d10380eeeab06f5d95ce311e6e152
 }
