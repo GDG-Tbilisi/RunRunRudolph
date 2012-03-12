@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <ImageView
+            android:id="@+id/meore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/meore" />
+    <ImageView
+            android:id="@+id/mesame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mesame" />
+    <ImageView
+            android:id="@+id/meotxe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/meotxe" />
+    <ImageView
+            android:id="@+id/mexute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mexute" />
+    <ImageView
+            android:id="@+id/meeqvse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/meeqvse"/>
+    <ImageView
+            android:id="@+id/meshvide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/meshvide" />
+   
+    
+    
+    
+    
+    
+
+</LinearLayout>
