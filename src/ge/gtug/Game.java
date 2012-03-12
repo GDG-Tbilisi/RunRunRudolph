@@ -16,7 +16,7 @@ public class Game extends Activity
 {
 	public TextView result;
 	public ImageView pirveli, meore, mesame, meotxe, mexute, meeqvse, meshvide;
-	int[] drawableIds = {R.drawable.meore, R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute, R.drawable.meeqvse, R.drawable.meshvide};
+	int[] drawableIds = {R.drawable.pirveli,R.drawable.meore, R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute, R.drawable.meeqvse, R.drawable.meshvide};
 	int counter=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,37 +25,22 @@ public class Game extends Activity
 		setContentView(R.layout.game);
 		result = (TextView) findViewById(R.id.result);
 	  	result.setText("Number of steps made: " + counter);  
-	  	pirveli = (ImageView) findViewById(R.drawable.pirveli);
-	  //	pirveli.setOnTouchListener((OnTouchListener) this);
-	  	
-	  	meore = (ImageView) findViewById(R.drawable.meore);
-	  	mesame = (ImageView) findViewById(R.drawable.mesame);
-	  	meotxe = (ImageView) findViewById(R.drawable.meotxe);
-	  	mexute = (ImageView) findViewById(R.drawable.mexute);
-	  	meeqvse = (ImageView) findViewById(R.drawable.meeqvse);
-	  	meshvide= (ImageView) findViewById(R.drawable.meshvide);
+	  	pirveli = (ImageView) findViewById(R.id.pirveli);
+	  	meore = (ImageView) findViewById(R.id.meore);
+	  	mesame = (ImageView) findViewById(R.id.mesame);
+	  	meotxe = (ImageView) findViewById(R.id.meotxe);
+	  	mexute = (ImageView) findViewById(R.id.mexute);
+	  	meeqvse = (ImageView) findViewById(R.id.meeqvse);
+	  	meshvide= (ImageView) findViewById(R.id.meshvide);
 	}
 
 	public boolean onTouchEvent(MotionEvent event) {
 		  if(event.getAction()==MotionEvent.ACTION_DOWN){
 		     result.setText("Number of steps made: " + counter);
 		     counter++;
-		     pirveli.setImageResource(drawableIds[ drawableIds.length % ++counter]);
+		    meshvide.setImageResource(drawableIds[counter % drawableIds.length]);
 		  }
 		  return false;
-	
-//	public boolean onTouchEvent(MotionEvent event) {
-//	    // TODO Auto-generated method stub
-//	    if(event.getAction() == MotionEvent.ACTION_DOWN){
-//	        if (result != null);
-//	            result.setText("Number of steps made: " + counter);
-//	        counter++; 
-//
-//	        if (pirveli != null)
-//	            pirveli.setImageResource(R.drawable.meore);
-//	        return true;
-//	    }
-//	    return false;
 	}
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
