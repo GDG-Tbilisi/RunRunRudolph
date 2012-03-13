@@ -25,12 +25,12 @@ public class Game extends Activity
 		setContentView(R.layout.game);
 		result = (TextView) findViewById(R.id.result);
 	  	result.setText("Number of steps made: " + counter);  
-	  	pirveli = (ImageView) findViewById(R.id.pirveli);
+	/*  	pirveli = (ImageView) findViewById(R.id.pirveli);
 	  	meore = (ImageView) findViewById(R.id.meore);
 	  	mesame = (ImageView) findViewById(R.id.mesame);
 	  	meotxe = (ImageView) findViewById(R.id.meotxe);
 	  	mexute = (ImageView) findViewById(R.id.mexute);
-	  	meeqvse = (ImageView) findViewById(R.id.meeqvse);
+	  	meeqvse = (ImageView) findViewById(R.id.meeqvse);*/
 	  	meshvide= (ImageView) findViewById(R.id.meshvide);
 	}
 
