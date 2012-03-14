@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.Timer;
 
 public class Game extends Activity 
 {
@@ -18,6 +19,7 @@ public class Game extends Activity
 	public ImageView pirveli, meore, mesame, meotxe, mexute, meeqvse, meshvide;
 	int[] drawableIds = {R.drawable.pirveli,R.drawable.meore, R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute, R.drawable.meeqvse, R.drawable.meshvide};
 	int counter=0;
+	Timer time = new Timer();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -35,6 +37,7 @@ public class Game extends Activity
 	}
 
 	public boolean onTouchEvent(MotionEvent event) {
+		
 		  if(event.getAction()==MotionEvent.ACTION_DOWN){
 		     result.setText("Number of steps made: " + counter);
 		     counter++;
