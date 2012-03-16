@@ -36,6 +36,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Results"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ge.gtug.RESULTS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

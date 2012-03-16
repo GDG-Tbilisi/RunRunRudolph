@@ -5,18 +5,6 @@
     android:orientation="vertical"
     android:background="#FFFFFF"
      >
-    
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="RESULT"
-        android:textColor="#000000"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView
         android:id="@+id/pirveli"
@@ -60,11 +48,36 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:src="@drawable/pirveli" />
+
 	    <ImageView
-        android:id="@+id/meshvide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
+	        android:id="@+id/meshvide"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/pirveli"
+	        android:layout_alignTop="@+id/pirveli"
+	        android:src="@drawable/pirveli" />
+
+	    <TextView
+	        android:id="@+id/result"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/pirveli"
+	        android:layout_marginBottom="80dp"
+	        android:gravity="center"
+	        android:text="RESULT"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textColor="#000000" />
+
+	    <TextView
+	        android:id="@+id/time"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:gravity="center"
+	        android:layout_marginTop="24dp"
+	        android:text="TIME"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textColor="#000000" />
+
 </RelativeLayout>
