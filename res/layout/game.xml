@@ -1,83 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFFFFF"
-     >
+    android:orientation="vertical" >
 
-    <ImageView
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="RESULT"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/result"
+        android:gravity="center"
+        android:text="TIME"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+    
+     <ImageView
         android:id="@+id/pirveli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:src="@drawable/pirveli" />
-     <ImageView
+
+    <ImageView
         android:id="@+id/meore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
-       <ImageView
+        android:src="@drawable/meore" />
+
+    <ImageView
         android:id="@+id/mesame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
-         <ImageView
+        android:src="@drawable/mesame" />
+
+    <ImageView
         android:id="@+id/meotxe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
-           <ImageView
+        android:src="@drawable/meotxe" />
+
+    <ImageView
         android:id="@+id/mexute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
-	  <ImageView
+        android:src="@drawable/mexute" />
+     <ImageView
         android:id="@+id/meeqvse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
-
-	    <ImageView
-	        android:id="@+id/meshvide"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/pirveli"
-	        android:layout_alignTop="@+id/pirveli"
-	        android:src="@drawable/pirveli" />
-
-	    <TextView
-	        android:id="@+id/result"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_above="@+id/pirveli"
-	        android:layout_marginBottom="80dp"
-	        android:gravity="center"
-	        android:text="RESULT"
-	        android:textAppearance="?android:attr/textAppearanceLarge"
-	        android:textColor="#000000" />
-
-	    <TextView
-	        android:id="@+id/time"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentTop="true"
-	        android:layout_centerHorizontal="true"
-	        android:gravity="center"
-	        android:layout_marginTop="24dp"
-	        android:text="TIME"
-	        android:textAppearance="?android:attr/textAppearanceLarge"
-	        android:textColor="#000000" />
+        android:src="@drawable/meeqvse" />
+      <ImageView
+        android:id="@+id/meshvide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/meshvide" />
 
 </RelativeLayout>

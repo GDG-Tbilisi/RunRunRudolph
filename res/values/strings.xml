@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, RunRunRudolphActivity!</string>
     <string name="app_name">RunRunRudolph</string>
+    <string name="share">Share your result !</string>
 
 </resources>
