@@ -22,7 +22,8 @@ public final class R {
         public static final int pirveli=0x7f020008;
     }
     public static final class id {
-        public static final int about=0x7f06000c;
+        public static final int about=0x7f06000d;
+        public static final int edName=0x7f06000a;
         public static final int meeqvse=0x7f060007;
         public static final int meore=0x7f060003;
         public static final int meotxe=0x7f060005;
@@ -30,11 +31,11 @@ public final class R {
         public static final int meshvide=0x7f060008;
         public static final int mexute=0x7f060006;
         public static final int pirveli=0x7f060002;
-        public static final int restart=0x7f06000d;
+        public static final int restart=0x7f06000e;
         public static final int result=0x7f060000;
-        public static final int shareButton=0x7f06000b;
+        public static final int shareButton=0x7f06000c;
         public static final int start=0x7f060009;
-        public static final int textView1=0x7f06000a;
+        public static final int textView1=0x7f06000b;
         public static final int time=0x7f060001;
     }
     public static final class layout {
