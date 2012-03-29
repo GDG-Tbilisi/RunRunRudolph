@@ -1,5 +1,6 @@
  package ge.gtug;
 
+import ge.gtug.bl.PlayersManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +11,14 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 public class Game extends Activity 
-{
+{	
+	//final EditText edName = (EditText) findViewById(R.id.edName);
+
 	public TextView result, time;
 	public ImageView pirveli, meore, mesame, meotxe, mexute, meeqvse, meshvide;
 	int[] drawableIds = {R.drawable.pirveli,R.drawable.meore, R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute, R.drawable.meeqvse, R.drawable.meshvide};
@@ -37,8 +41,9 @@ public class Game extends Activity
 	    time = (TextView) findViewById(R.id.time);
 	    final MyCounter timer = new MyCounter(10000,1000);
 	    timer.start();
+	 
 	}
-
+	PlayersManager players= new PlayersManager(this);
 	public class MyCounter extends CountDownTimer{
 		 
         public MyCounter(long millisInFuture, long countDownInterval) {
@@ -49,12 +54,27 @@ public class Game extends Activity
         public void onFinish() {
 //            System.out.println("Timer Completed.");
             time.setText("");
-            Toast.makeText(getBaseContext(), "Time is up! Your score is: "+ counter, 3000).show();
+            Toast.makeText(getBaseContext(), "Time is up! Your score is: "+ --counter, 3000).show();
             Intent resultIntent = new Intent ("ge.gtug.RESULTS");
+            updateInDb(counter);
             startActivity(resultIntent);
         }
  
-        @Override
+        private void updateInDb(int counter) {
+			// TODO Auto-generated method stub
+    //  	String player = edName.getText().toString();
+        	Bundle extras = getIntent().getExtras(); 
+        	String player = "";
+        	if(extras !=null)
+        	{
+        	player += extras.getString("name");
+        	}
+
+        	System.out.println("parameter for db update " + counter + ",  " + player );
+			players.updateScores(counter,player);
+		}
+
+		@Override
         public void onTick(long millisUntilFinished) {
             time.setText((millisUntilFinished/1000)+"");
             System.out.println("Timer  : " + (millisUntilFinished/1000));

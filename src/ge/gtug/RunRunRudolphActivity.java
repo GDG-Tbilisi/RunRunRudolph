@@ -32,7 +32,7 @@ public class RunRunRudolphActivity extends Activity {
 					createPkayer(name);
 				}
 				Intent gameIntent = new Intent("ge.gtug.GAME");
-				
+				gameIntent.putExtra("name", edName.getText().toString());
 				startActivity(gameIntent);
 			}
 
