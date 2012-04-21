@@ -4,22 +4,64 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="198dp"
-        android:text="Start !" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <EditText
-        android:id="@+id/edName"
-        android:layout_width="212dp"
+        <EditText
+            android:id="@+id/edName"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="98dp"
+            android:contentDescription="Player Enter Your Name"
+            android:ems="10"
+            android:hint="Type your name"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/start"
+            android:layout_marginTop="30dp"
+            android:text="Rudolph wonna Run?"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/edName"
+            android:layout_toRightOf="@+id/edName"
+            android:text="Go !" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:inputType="textPersonName"/>
+        android:layout_weight="0.27"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="77dp"
+            android:text="Start !" />
+
+        <TextView
+            android:id="@+id/txtNewPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="47dp"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </RelativeLayout>
 
 </LinearLayout>

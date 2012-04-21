@@ -25,6 +25,7 @@ public class PlayersManager extends DBHelper{
 		
 		db.execSQL("INSERT INTO players Values ('"+name+"','0');");
 		}
+		c.close();
 		db.close();
 		
 	}
@@ -40,12 +41,16 @@ public class PlayersManager extends DBHelper{
 				null,
 				null, null, null, null);
 		System.out.println("Count " + c.getCount());
-		for (c.moveToFirst(); !c.isLast(); c.moveToNext()) {
+		c.moveToFirst();
+		for(int i=0;i<c.getCount();i++){
+			
 			String name = c.getString(0).toString();
 			String point = c.getString(1).toString();
 			result.add(new PlayersEntry(name, point));
+			c.moveToNext();
 		}
-			c = null;
+			c.close();
+			db.close();
 			return result;
 	}
 
@@ -56,6 +61,7 @@ public class PlayersManager extends DBHelper{
 			//update here
 			SQLiteDatabase db = this.getReadableDatabase();
 			db.execSQL("update players set point = "+counter+" where name = '"+player+"'");
+		//db.endTransaction();
 			db.close();
 		}
 		
@@ -63,16 +69,21 @@ public class PlayersManager extends DBHelper{
 		
 	}
 
-	private int getCurrentPoint(String player) {
+	public int getCurrentPoint(String player) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = this.getReadableDatabase();
 		String[] columns = new String[] {"point" };
 		
 	//	Cursor c = db.execSQL("select point from players where name = '"+player+"'");
-		
+		int curScore = 0;
 		Cursor c = db.rawQuery("select point from players where name = '"+player+"'",null);
-		c.moveToFirst();
-		int curScore = c.getInt(0);
+		System.out.println(c.getCount());
+		System.out.println(c);
+		if (c.getCount()!=0) {
+			c.moveToFirst();
+			curScore = c.getInt(0);
+		}
+		c.close();
 		db.close();
 		
 		return curScore;

@@ -93,6 +93,7 @@ public class Results extends Activity {
 			startActivity(new Intent(this, About.class));
 			return true;
 		case R.id.restart:
+				
 			Intent restart = new Intent("ge.gtug.GAME");
 			startActivity(restart);
 		default:
