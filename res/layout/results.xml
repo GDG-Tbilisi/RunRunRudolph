@@ -10,12 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Aq iqneba shedegebi"
         android:textAppearance="?android:attr/textAppearanceLarge" />
- <EditText
-        android:id="@+id/resultBox"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:inputType="textMultiLine" />
+ 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"

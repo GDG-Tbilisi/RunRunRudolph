@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 public class Results extends Activity {
-	private static DBHelper myDbHelper = null;
+	DBHelper myDbHelper;
 	Button shareBtn;
 	ListView list;
 	EditText et;
@@ -30,7 +30,7 @@ public class Results extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.results);
 		shareBtn = (Button)findViewById(R.id.shareButton);
-		et = (EditText) findViewById(R.id.resultBox);
+	//	et = (EditText) findViewById(R.id.resultBox);
 		loadStatistics();
 		shareBtn.setOnClickListener(new View.OnClickListener() {
 			
@@ -49,24 +49,30 @@ public class Results extends Activity {
 	
 	private void loadStatistics() {
 		// TODO Auto-generated method stub
-		ArrayList<PlayersEntry> result = new ArrayList();
+		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
 		PlayersManager players= new PlayersManager(this);
-		myDbHelper = new DBHelper(this);
 		list = (ListView) findViewById(R.id.list);
+		myDbHelper = new DBHelper(this);
 		myDbHelper.openDataBase();
 		result = players.getStatistics();
 		myDbHelper.close();
-		System.out.println("Size of results " + result.size());
-		//System.out.println("Size of results get " + result.get(1).toString());
-		String stat = "";
-		//playersList = getPlayers(result);
+		playersList = new ArrayList<PlayersEntry>();
+		playersList = getList(result);
+		
+		list.setAdapter(new ArrayAdapter<PlayersEntry>(Results.this, android.R.layout.simple_list_item_1,playersList));
+		
+		
+	}
+
+	private List<PlayersEntry> getList(ArrayList<PlayersEntry> result) {
+		// TODO Auto-generated method stub
 		for(PlayersEntry entry : result){
-		 	stat += entry.getName() + "-" + entry.getPoint()+"\n";
-		//	playersList.add(entry.getName().toString()+ " - " +entry.getPoint().toString());
-				}
-		//System.out.println(" Size of results " + playersList.size());
-	//	list.setAdapter(new ArrayAdapter<PlayersEntry>(Results.this, android.R.layout.simple_list_item_1,playersList));
-		et.setText(stat);
+
+			playersList.add(entry.getName()+ " - " +entry.getPoint());
+			
+		}
+		
+		return playersList;
 	}
 
 	private List getPlayers(ArrayList<PlayersEntry> result) {

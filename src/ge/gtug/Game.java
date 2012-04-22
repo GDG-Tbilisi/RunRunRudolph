@@ -62,7 +62,7 @@ public class Game extends Activity {
 			// System.out.println("Timer Completed.");
 			time.setText("");
 			Toast.makeText(getBaseContext(),
-					"Time is up! Your score is: " + --counter, 3000).show();
+					"Time is up! Your score is: " + counter, 3000).show();
 			Intent resultIntent = new Intent("ge.gtug.RESULTS");
 			updateInDb(counter);
 			startActivity(resultIntent);
