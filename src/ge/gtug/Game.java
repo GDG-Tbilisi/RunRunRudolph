@@ -1,7 +1,8 @@
- package ge.gtug;
+package ge.gtug;
 
 import ge.gtug.bl.PlayersManager;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -15,100 +16,99 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-public class Game extends Activity 
-{	
-	//final EditText edName = (EditText) findViewById(R.id.edName);
+
+public class Game extends Activity {
+	// final EditText edName = (EditText) findViewById(R.id.edName);
 
 	public TextView result, time;
 	public ImageView pirveli, meore, mesame, meotxe, mexute, meeqvse, meshvide;
-	int[] drawableIds = {R.drawable.pirveli,R.drawable.meore, R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute, R.drawable.meeqvse, R.drawable.meshvide};
-	public int counter=0;
+	int[] drawableIds = { R.drawable.pirveli, R.drawable.meore,
+			R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute,
+			R.drawable.meeqvse, R.drawable.meshvide };
+	public int counter = 0;
 	private CountDownTimer timer;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
 		result = (TextView) findViewById(R.id.result);
-	  	result.setText("Steps made: " + counter);  
-	  	pirveli = (ImageView) findViewById(R.id.pirveli);
-	  	meore = (ImageView) findViewById(R.id.meore);
-	  	mesame = (ImageView) findViewById(R.id.mesame);
-	  	meotxe = (ImageView) findViewById(R.id.meotxe);
-	  	mexute = (ImageView) findViewById(R.id.mexute);
-	  	meeqvse = (ImageView) findViewById(R.id.meeqvse);
-	  	meshvide= (ImageView) findViewById(R.id.meshvide);
-	    time = (TextView) findViewById(R.id.time);
-	    final MyCounter timer = new MyCounter(10000,1000);
-	    timer.start();
-	 
-	}
-	PlayersManager players= new PlayersManager(this);
-	public class MyCounter extends CountDownTimer{
-		 
-        public MyCounter(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
- 
-        @Override
-        public void onFinish() {
-//            System.out.println("Timer Completed.");
-            time.setText("");
-            Toast.makeText(getBaseContext(), "Time is up! Your score is: "+ --counter, 3000).show();
-            Intent resultIntent = new Intent ("ge.gtug.RESULTS");
-            updateInDb(counter);
-            startActivity(resultIntent);
-        }
- 
-        private void updateInDb(int counter) {
-			// TODO Auto-generated method stub
-    //  	String player = edName.getText().toString();
-        	Bundle extras = getIntent().getExtras(); 
-        	String player = "";
-        	if(extras !=null)
-        	{
-        	player += extras.getString("name");
-        	}
+		result.setText("Steps made: " + counter);
+		
+		pirveli = (ImageView) findViewById(R.id.pirveli);
+		meore = (ImageView) findViewById(R.id.meore);
+		mesame = (ImageView) findViewById(R.id.mesame);
+		meotxe = (ImageView) findViewById(R.id.meotxe);
+		mexute = (ImageView) findViewById(R.id.mexute);
+		meeqvse = (ImageView) findViewById(R.id.meeqvse);
+		meshvide = (ImageView) findViewById(R.id.meshvide);
+		time = (TextView) findViewById(R.id.time);
+		final MyCounter timer = new MyCounter(10000, 1000);
+		timer.start();
 
-        	System.out.println("parameter for db update " + counter + ",  " + player );
-			players.updateScores(counter,player);
+	}
+
+	PlayersManager players = new PlayersManager(this);
+
+	public class MyCounter extends CountDownTimer {
+
+		public MyCounter(long millisInFuture, long countDownInterval) {
+			super(millisInFuture, countDownInterval);
 		}
 
 		@Override
-        public void onTick(long millisUntilFinished) {
-            time.setText((millisUntilFinished/1000)+"");
-            System.out.println("Timer  : " + (millisUntilFinished/1000));
-        }
-    }
-	
-    
-	public boolean onTouchEvent(MotionEvent event) {
-		
-		  if(event.getAction()==MotionEvent.ACTION_DOWN){
-		     result.setText("Steps made: " + counter);
-		     counter++;    
-		     meshvide.setImageResource(drawableIds[counter % drawableIds.length]);
-		  }
-		  return false;
+		public void onFinish() {
+			// System.out.println("Timer Completed.");
+			time.setText("");
+			Toast.makeText(getBaseContext(),
+					"Time is up! Your score is: " + --counter, 3000).show();
+			Intent resultIntent = new Intent("ge.gtug.RESULTS");
+			updateInDb(counter);
+			startActivity(resultIntent);
+
+		}
+
+		private void updateInDb(int counter) {
+			// TODO Auto-generated method stub
+			
+			Bundle extras = getIntent().getExtras();
+			String player = "";
+			if (extras != null) {
+				player += extras.getString("name");
+			}
+
+			System.out.println("parameter for db update " + counter + ",  "
+					+ player);
+			players.updateScores(counter, player);
+		}
+
+		@Override
+		public void onTick(long millisUntilFinished) {
+			time.setText((millisUntilFinished / 1000) + "");
+			System.out.println("Timer  : " + (millisUntilFinished / 1000));
+		}
 	}
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// TODO Auto-generated method stub
-//		super.onCreateOptionsMenu(menu);
-//		MenuInflater koba = getMenuInflater();
-//		koba.inflate(R.menu.menu, menu);
-//		return true;	
-//	}
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		// TODO Auto-generated method stub
-//		switch (item.getItemId()) {
-//		case R.id.about:
-//			startActivity(new Intent(this, About.class));
-//			return true;
-//		case R.id.restart:
-//			counter = 0;
-//			result.setText("Number of steps made: " + counter);		
-//		default:
-//			return super.onOptionsItemSelected(item);
-//		}
-//	}
+
+	public boolean onTouchEvent(MotionEvent event) {
+		  int eventaction = event.getAction();
+
+		    switch (eventaction) {
+		        case MotionEvent.ACTION_DOWN: 
+		            // finger touches the screen
+		    			result.setText("Steps made: " + ++counter);
+		            break;
+		        case MotionEvent.ACTION_MOVE:
+		            // finger moves on the screen
+		            break;
+		        case MotionEvent.ACTION_UP:   
+		            // finger leaves the screen
+		        	meshvide.setImageResource(drawableIds[counter % drawableIds.length]);
+		            break;
+		    }
+
+		    // tell the system that we handled the event and no further processing is required
+		    return true; 
+	}
+	
 }
