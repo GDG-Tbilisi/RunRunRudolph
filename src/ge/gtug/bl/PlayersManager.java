@@ -49,9 +49,9 @@ public class PlayersManager extends DBHelper{
 			result.add(new PlayersEntry(name, point));
 			c.moveToNext();
 		}
-			c.close();
-			db.close();
-			return result;
+		c.close();
+		db.close();
+		return result;
 	}
 
 	public void updateScores(int counter, String player) {
