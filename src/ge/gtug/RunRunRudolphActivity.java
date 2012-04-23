@@ -32,7 +32,7 @@ public class RunRunRudolphActivity extends Activity {
 				// TODO Auto-generated method stub
 				String name  = edName.getText().toString().trim();
 				if(name!=null || !name.equals("")){	//checkPlayer(name);
-					createPkayer(name);
+					createPlayer(name);
 				}
 				Intent gameIntent = new Intent("ge.gtug.GAME");
 				gameIntent.putExtra("name", edName.getText().toString());
@@ -41,7 +41,7 @@ public class RunRunRudolphActivity extends Activity {
 
 			
 
-			public void createPkayer(String name) {
+			public void createPlayer(String name) {
 				// TODO Auto-generated method stub
 				p.createPlayer(name);
 			}
