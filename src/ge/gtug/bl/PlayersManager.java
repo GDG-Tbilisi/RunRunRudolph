@@ -35,7 +35,7 @@ public class PlayersManager extends DBHelper{
 		
 		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
 		
-		String[] columns = new String[] { "name","point" };
+		String[] columns = { "name","point" };
 	
 		Cursor c = db.query("players", columns,
 				null,
