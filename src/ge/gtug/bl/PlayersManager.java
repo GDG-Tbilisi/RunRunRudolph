@@ -72,7 +72,7 @@ public class PlayersManager extends DBHelper{
 	public int getCurrentPoint(String player) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = this.getReadableDatabase();
-		String[] columns = new String[] {"point" };
+		String[] columns = {"point" };
 		
 	//	Cursor c = db.execSQL("select point from players where name = '"+player+"'");
 		int curScore = 0;
