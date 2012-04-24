@@ -32,7 +32,6 @@ public class Results extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.results);
 		shareBtn = (Button) findViewById(R.id.shareButton);
-		// et = (EditText) findViewById(R.id.resultBox);
 		loadStatistics();
 		shareBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -58,19 +57,18 @@ public class Results extends Activity {
 		result = players.getStatistics();
 		myDbHelper.close();
 		playersList = new ArrayList<PlayersEntry>();
-		playersList = getList(result);
+		playersList = prepareList(result);
 
 		list.setAdapter(new ArrayAdapter<PlayersEntry>(Results.this,
 				android.R.layout.simple_list_item_1, playersList));
 
 	}
 
-	private List<PlayersEntry> getList(ArrayList<PlayersEntry> result) {
+	private List<PlayersEntry> prepareList(ArrayList<PlayersEntry> result) {
 		// TODO Auto-generated method stub
 		for (PlayersEntry entry : result) {
 			playersList.add(entry.getName() + " - " + entry.getPoint());
 		}
-
 		return playersList;
 	}
 
@@ -95,28 +93,23 @@ public class Results extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
-		case R.id.about:
-			startActivity(new Intent(this, About.class));
-			return true;
-		case R.id.restart:
-
-			Intent restart = new Intent("ge.gtug.GAME");
-			startActivity(restart);
-		default:
-			return super.onOptionsItemSelected(item);
+			case R.id.about:
+				startActivity(new Intent(this, About.class));
+				return true;
+			case R.id.restart:
+	
+	//			Intent restart = new Intent("ge.gtug.GAME");
+	//			startActivity(restart);
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.addCategory(Intent.CATEGORY_HOME);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(intent);
+			default:
+				
+		return super.onOptionsItemSelected(item);
 		}
 	}
 
-	// public void share(String subject,String text) {
-	// final Intent intent = new Intent(Intent.ACTION_SEND);
-	//
-	// intent.setType("text/plain");
-	// intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-	// intent.putExtra(Intent.EXTRA_TEXT, text);
-	//
-	// startActivity(Intent.createChooser(intent, getString(R.string.share)));
-	// }
-	// }
 	public void share() {
 		Intent i = null;
 		String msg = "My score is: ";

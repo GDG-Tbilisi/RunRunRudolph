@@ -21,7 +21,7 @@ public class Game extends Activity {
 	// final EditText edName = (EditText) findViewById(R.id.edName);
 
 	public TextView result, time;
-	public ImageView pirveli, meore, mesame, meotxe, mexute, meeqvse, meshvide;
+	public ImageView first, second, third, fourth, fifth, sixth, seventh;
 	int[] drawableIds = { R.drawable.pirveli, R.drawable.meore,
 			R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute,
 			R.drawable.meeqvse, R.drawable.meshvide };
@@ -36,37 +36,43 @@ public class Game extends Activity {
 		result = (TextView) findViewById(R.id.result);
 		result.setText("Steps made: " + counter);
 		
-		pirveli = (ImageView) findViewById(R.id.pirveli);
-		meore = (ImageView) findViewById(R.id.meore);
-		mesame = (ImageView) findViewById(R.id.mesame);
-		meotxe = (ImageView) findViewById(R.id.meotxe);
-		mexute = (ImageView) findViewById(R.id.mexute);
-		meeqvse = (ImageView) findViewById(R.id.meeqvse);
-		meshvide = (ImageView) findViewById(R.id.meshvide);
+		first = (ImageView) findViewById(R.id.pirveli);
+		second = (ImageView) findViewById(R.id.meore);
+		third = (ImageView) findViewById(R.id.mesame);
+		fourth = (ImageView) findViewById(R.id.meotxe);
+		fifth = (ImageView) findViewById(R.id.mexute);
+		sixth = (ImageView) findViewById(R.id.meeqvse);
+		seventh = (ImageView) findViewById(R.id.meshvide);
 		time = (TextView) findViewById(R.id.time);
 		final MyCounter timer = new MyCounter(10000, 1000);
 		timer.start();
-
 	}
-
+	
 	PlayersManager players = new PlayersManager(this);
 
-	public class MyCounter extends CountDownTimer {
+	public boolean onTouchEvent(MotionEvent event) {
+		  int eventaction = event.getAction();
+		    switch (eventaction) {
+		        case MotionEvent.ACTION_DOWN: 
+		            // finger touches the screen
+		    			result.setText("Steps made: " + ++counter);
+		            break;
+		        case MotionEvent.ACTION_MOVE:
+		            // finger moves on the screen
+		            break;
+		        case MotionEvent.ACTION_UP:   
+		            // finger leaves the screen
+		        	seventh.setImageResource(drawableIds[counter % drawableIds.length]);
+		            break;
+		    }
 
+		    // tell the system that we handled the event and no further processing is required
+		    return true; 
+	}
+
+	public class MyCounter extends CountDownTimer {
 		public MyCounter(long millisInFuture, long countDownInterval) {
 			super(millisInFuture, countDownInterval);
-		}
-
-		@Override
-		public void onFinish() {
-			// System.out.println("Timer Completed.");
-			time.setText("");
-			Toast.makeText(getBaseContext(),
-					"Time is up! Your score is: " + counter, 3000).show();
-			Intent resultIntent = new Intent("ge.gtug.RESULTS");
-			updateInDb(counter);
-			startActivity(resultIntent);
-
 		}
 
 		private void updateInDb(int counter) {
@@ -78,37 +84,27 @@ public class Game extends Activity {
 				player += extras.getString("name");
 			}
 
-			System.out.println("parameter for db update " + counter + ",  "
-					+ player);
 			players.updateScores(counter, player);
 		}
 
 		@Override
 		public void onTick(long millisUntilFinished) {
 			time.setText((millisUntilFinished / 1000) + "");
-			System.out.println("Timer  : " + (millisUntilFinished / 1000));
+		}
+		
+		@Override
+		public void onFinish() {
+			// System.out.println("Timer Completed.");
+			time.setText("");
+			Toast.makeText(getBaseContext(),
+					"Time is up! Your score is: " + counter, 3000).show();
+			
+			Intent resultIntent = new Intent("ge.gtug.RESULTS");
+			updateInDb(counter);
+			startActivity(resultIntent);
+
 		}
 	}
 
-	public boolean onTouchEvent(MotionEvent event) {
-		  int eventaction = event.getAction();
-
-		    switch (eventaction) {
-		        case MotionEvent.ACTION_DOWN: 
-		            // finger touches the screen
-		    			result.setText("Steps made: " + ++counter);
-		            break;
-		        case MotionEvent.ACTION_MOVE:
-		            // finger moves on the screen
-		            break;
-		        case MotionEvent.ACTION_UP:   
-		            // finger leaves the screen
-		        	meshvide.setImageResource(drawableIds[counter % drawableIds.length]);
-		            break;
-		    }
-
-		    // tell the system that we handled the event and no further processing is required
-		    return true; 
-	}
-	
+		
 }
