@@ -19,11 +19,12 @@ public class PlayersManager extends DBHelper{
 	public void createPlayer(String name) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor c = db.rawQuery("select count(*) from players where name = '"+name+"'",null);
+		String[] n = {name};
+		Cursor c = db.rawQuery("select count(*) from players where name = ?",n);
 		c.moveToFirst();
 		if( c.getInt(0)==0){
 		
-		db.execSQL("INSERT INTO players Values ('"+name+"','0');");
+		db.execSQL("INSERT INTO players Values (?,'0')",n);
 		}
 		c.close();
 		db.close();
@@ -32,18 +33,16 @@ public class PlayersManager extends DBHelper{
 	public ArrayList<PlayersEntry> getStatistics(){
 		
 		SQLiteDatabase db = this.getReadableDatabase();
-		
 		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
-		
 		String[] columns = { "name","point" };
 	
 		Cursor c = db.query("players", columns,
 				null,
 				null, null, null, null);
-		System.out.println("Count " + c.getCount());
+		
 		c.moveToFirst();
+		
 		for(int i=0;i<c.getCount();i++){
-			
 			String name = c.getString(0).toString();
 			String point = c.getString(1).toString();
 			result.add(new PlayersEntry(name, point));
@@ -57,35 +56,28 @@ public class PlayersManager extends DBHelper{
 	public void updateScores(int counter, String player) {
 		// TODO Auto-generated method stub
 		int currentPoint = getCurrentPoint(player);
+		Object[] c = {counter,player};
 		if(currentPoint < counter){
 			//update here
 			SQLiteDatabase db = this.getReadableDatabase();
-			db.execSQL("update players set point = "+counter+" where name = '"+player+"'");
-		//db.endTransaction();
+			db.execSQL("update players set point = ? where name = ?",c);
 			db.close();
 		}
-		
-		
-		
 	}
 
 	public int getCurrentPoint(String player) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = this.getReadableDatabase();
 		String[] columns = {"point" };
-		
-	//	Cursor c = db.execSQL("select point from players where name = '"+player+"'");
+		String[] pl = {player};
 		int curScore = 0;
-		Cursor c = db.rawQuery("select point from players where name = '"+player+"'",null);
-		System.out.println(c.getCount());
-		System.out.println(c);
+		Cursor c = db.rawQuery("select point from players where name = ?",pl);
 		if (c.getCount()!=0) {
 			c.moveToFirst();
 			curScore = c.getInt(0);
 		}
 		c.close();
 		db.close();
-		
 		return curScore;
 	}
 }
