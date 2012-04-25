@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -26,15 +27,18 @@
             android:layout_alignRight="@+id/start"
             android:layout_marginTop="30dp"
             android:text="Rudolph wonna Run?"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="#FF0000"/>
 
         <Button
             android:id="@+id/go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/edName"
             android:layout_toRightOf="@+id/edName"
-            android:text="Go !" />
+          
+            android:text="Go !" android:soundEffectsEnabled="false"/>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -47,20 +51,29 @@
             android:id="@+id/start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="77dp"
-            android:text="Start !" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="76dp"
+            android:text="Run !" android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/txtNewPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="47dp"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FF0000" />
+
+        <ToggleButton
+            android:id="@+id/toggleMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="28dp"
+            android:checked="true"
+            android:text="MusicTogg;e" />
 
     </RelativeLayout>
 

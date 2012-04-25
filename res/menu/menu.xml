@@ -4,11 +4,13 @@
     <item 
        android:title="About" 
        android:id="@+id/about"
+       android:icon="@drawable/about1"
        android:orderInCategory="2">
      </item>
      
      <item 
-       android:title="Restart" 
+       android:title="Exit" 
+       android:icon="@drawable/exit"
        android:id="@+id/restart"
        android:orderInCategory="1">
      </item>

@@ -32,18 +32,25 @@ public class Game extends Activity {
 			R.drawable.meeqvse, R.drawable.meshvide };
 	public int counter = 0;
 	private CountDownTimer timer;
-	  MediaPlayer song;
-
+	MediaPlayer song;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
 		
+		Bundle bundle = getIntent().getExtras();
+		
+		String player = bundle.getString("name");
+		String sound = bundle.getString("sound");
+		System.out.println(sound + " <----- soundd");
+		
+		if(sound.equals("ON")){
 		song = MediaPlayer.create(this, R.raw.rudolph);
 		song.setVolume(100, 100);
 		song.start();
-		
+		}
 		result = (TextView) findViewById(R.id.result);
 		result.setText("Steps made: " + counter);
 		
@@ -116,12 +123,11 @@ public class Game extends Activity {
 			song.release();
 			time.setText("");
 			Toast.makeText(getBaseContext(),
-					"Time is up! Your score is: " + counter, 3000).show();
+					"Time is up! Your score is: " + counter, 5000).show();
 			
 			Intent resultIntent = new Intent("ge.gtug.RESULTS");
 			updateInDb(counter);
 			startActivity(resultIntent);
-
 		}
 	}
 

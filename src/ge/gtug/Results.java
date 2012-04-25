@@ -14,13 +14,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class Results extends Activity {
 	DBHelper myDbHelper;
+	
 	Button shareBtn;
 	ListView list;
 	EditText et;
@@ -33,13 +37,21 @@ public class Results extends Activity {
 		setContentView(R.layout.results);
 		shareBtn = (Button) findViewById(R.id.shareButton);
 		loadStatistics();
+		
+			
+		
 		shareBtn.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				String zaza = null;
 				String koba = null;
-				// TODO Auto-generated method stub
-				share();
+
+				Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+				sharingIntent.setType("text/plain");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I've made %s steps in 10 seconds. ??..??");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "runRunRudolph!");
+				startActivity(Intent.createChooser(sharingIntent, null));
+
 
 			}
 

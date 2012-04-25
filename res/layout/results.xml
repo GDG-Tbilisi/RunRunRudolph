@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+     android:background="#FF0000"
     android:orientation="vertical" >
 
     <TextView
@@ -11,13 +12,16 @@
         android:layout_weight="0.22"
         android:text="Statistics"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="65px" android:textColor="#FF0000"/>
+        android:textSize="65px" android:textColor="#FFFFFF"/>
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:layout_weight="1.39" android:stackFromBottom="true" android:soundEffectsEnabled="true" android:smoothScrollbar="true" android:scrollingCache="true" android:scrollbarStyle="insideInset">
+        android:layout_weight="1.39" 
+        android:soundEffectsEnabled="true" 
+        android:smoothScrollbar="true" 
+        android:scrollbarStyle="insideInset" >
     </ListView>
 
     <LinearLayout
@@ -31,6 +35,7 @@
             android:layout_height="85dp"
             android:layout_weight="0.05"
             android:text="Share Score" />
+
 
         <Button
             android:id="@+id/button2"

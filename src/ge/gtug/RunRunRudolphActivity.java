@@ -6,26 +6,33 @@ import ge.gtug.bl.PlayersManager;
 import ge.gtug.db.DBHelper;
 import android.app.Activity;
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class RunRunRudolphActivity extends Activity {
 	/** Called when the activity is first created. */
+	ToggleButton toggleMusic;
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		final PlayersManager p = new PlayersManager(this);
-		Button start = (Button) findViewById(R.id.start);
+		final Button start = (Button) findViewById(R.id.start);
 		Button go = (Button) findViewById(R.id.go);
 		final TextView txtNewPlayer = (TextView) findViewById(R.id.txtNewPlayer);
 		final EditText edName = (EditText) findViewById(R.id.edName);
 	    createDB();
-	    
-	  
+	    toggleMusic = (ToggleButton) findViewById(R.id.toggleMusic);
+	    toggleMusic.setTextOff(" Sound \n off");
+	    toggleMusic.setTextOn(" Sound \n on");
 		start.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				
@@ -36,6 +43,7 @@ public class RunRunRudolphActivity extends Activity {
 				}
 				Intent gameIntent = new Intent("ge.gtug.GAME");
 				gameIntent.putExtra("name", edName.getText().toString());
+				gameIntent.putExtra("sound", toggleMusic.getText());
 				startActivity(gameIntent);
 			}
 
@@ -51,6 +59,7 @@ public class RunRunRudolphActivity extends Activity {
 				
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
+					start.setVisibility(View.VISIBLE);
 					String name  = edName.getText().toString().trim();
 					if(name!=null || !name.equals("")){	//checkPlayer(name);
 						int score = checkPlayer(name);
