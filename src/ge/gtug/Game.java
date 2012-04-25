@@ -3,9 +3,14 @@ package ge.gtug;
 import ge.gtug.bl.PlayersManager;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,12 +32,18 @@ public class Game extends Activity {
 			R.drawable.meeqvse, R.drawable.meshvide };
 	public int counter = 0;
 	private CountDownTimer timer;
+	  MediaPlayer song;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
+		
+		song = MediaPlayer.create(this, R.raw.rudolph);
+		song.setVolume(100, 100);
+		song.start();
+		
 		result = (TextView) findViewById(R.id.result);
 		result.setText("Steps made: " + counter);
 		
@@ -46,8 +57,12 @@ public class Game extends Activity {
 		time = (TextView) findViewById(R.id.time);
 		final MyCounter timer = new MyCounter(10000, 1000);
 		timer.start();
-	}
+		
+	}	
 	
+	
+		
+		
 	PlayersManager players = new PlayersManager(this);
 
 	public boolean onTouchEvent(MotionEvent event) {
@@ -56,12 +71,16 @@ public class Game extends Activity {
 		        case MotionEvent.ACTION_DOWN: 
 		            // finger touches the screen
 		    			result.setText("Steps made: " + ++counter);
+		    			if(!song.isPlaying()){
+		    				song.start();
+		    			}
 		            break;
 		        case MotionEvent.ACTION_MOVE:
 		            // finger moves on the screen
 		            break;
 		        case MotionEvent.ACTION_UP:   
 		            // finger leaves the screen
+		        	//song.pause();
 		        	seventh.setImageResource(drawableIds[counter % drawableIds.length]);
 		            break;
 		    }
@@ -69,7 +88,6 @@ public class Game extends Activity {
 		    // tell the system that we handled the event and no further processing is required
 		    return true; 
 	}
-
 	public class MyCounter extends CountDownTimer {
 		public MyCounter(long millisInFuture, long countDownInterval) {
 			super(millisInFuture, countDownInterval);
@@ -94,7 +112,8 @@ public class Game extends Activity {
 		
 		@Override
 		public void onFinish() {
-			// System.out.println("Timer Completed.");
+			song.stop();
+			song.release();
 			time.setText("");
 			Toast.makeText(getBaseContext(),
 					"Time is up! Your score is: " + counter, 3000).show();
