@@ -46,9 +46,10 @@ public class Game extends Activity {
 		String sound = bundle.getString("sound");
 		System.out.println(sound + " <----- soundd");
 		
-		if(sound.equals("ON")){
+		
 		song = MediaPlayer.create(this, R.raw.rudolph);
 		song.setVolume(100, 100);
+		if(sound.equals("ON")){
 		song.start();
 		}
 		result = (TextView) findViewById(R.id.result);
@@ -74,11 +75,16 @@ public class Game extends Activity {
 
 	public boolean onTouchEvent(MotionEvent event) {
 		  int eventaction = event.getAction();
+		  
+		  Bundle bundle = getIntent().getExtras();
+			
+		  String sound = bundle.getString("sound");
+			
 		    switch (eventaction) {
 		        case MotionEvent.ACTION_DOWN: 
 		            // finger touches the screen
 		    			result.setText("Steps made: " + ++counter);
-		    			if(!song.isPlaying()){
+		    			if(sound.equals("ON") && !song.isPlaying()){
 		    				song.start();
 		    			}
 		            break;
@@ -87,7 +93,6 @@ public class Game extends Activity {
 		            break;
 		        case MotionEvent.ACTION_UP:   
 		            // finger leaves the screen
-		        	//song.pause();
 		        	seventh.setImageResource(drawableIds[counter % drawableIds.length]);
 		            break;
 		    }
