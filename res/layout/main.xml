@@ -54,7 +54,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="76dp"
-            android:text="Run !" android:visibility="invisible"/>
+            android:text="Run !" 
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/txtNewPlayer"
@@ -73,7 +74,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="28dp"
             android:checked="true"
-            android:text="MusicTogg;e" />
+            android:text="of" android:soundEffectsEnabled="true"/>
 
     </RelativeLayout>
 

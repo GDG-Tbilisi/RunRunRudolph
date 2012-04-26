@@ -31,6 +31,7 @@ public class RunRunRudolphActivity extends Activity {
 		final EditText edName = (EditText) findViewById(R.id.edName);
 	    createDB();
 	    toggleMusic = (ToggleButton) findViewById(R.id.toggleMusic);
+	    toggleMusic.setText(" Sound \n on");
 	    toggleMusic.setTextOff(" Sound \n off");
 	    toggleMusic.setTextOn(" Sound \n on");
 		start.setOnClickListener(new View.OnClickListener() {
