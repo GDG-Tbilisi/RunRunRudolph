@@ -31,7 +31,8 @@ public class RunRunRudolphActivity extends Activity {
 		final EditText edName = (EditText) findViewById(R.id.edName);
 	    createDB();
 	    toggleMusic = (ToggleButton) findViewById(R.id.toggleMusic);
-		start.setOnClickListener(new View.OnClickListener() {
+	
+	    start.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				
 				// TODO Auto-generated method stub
