@@ -62,7 +62,7 @@ public class RunRunRudolphActivity extends Activity {
 					// TODO Auto-generated method stub
 					start.setVisibility(View.VISIBLE);
 					String name  = edName.getText().toString().trim();
-					if(name!=null || !name.equals("")){	//checkPlayer(name);
+					if(name!=null && !name.equals("")){	//checkPlayer(name);
 						int score = checkPlayer(name);
 						if(score>0){
 							txtNewPlayer.setText("Hello [ " + name + " ] your best score is [ " + score + " ] \n Click Start and try again");
