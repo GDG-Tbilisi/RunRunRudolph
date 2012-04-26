@@ -74,7 +74,9 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="28dp"
             android:checked="true"
-            android:text="of" android:soundEffectsEnabled="true"/>
+            android:text="of" 
+            android:soundEffectsEnabled="true" 
+            android:drawableTop="@drawable/music"/>
 
     </RelativeLayout>
 
