@@ -2,62 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/background"
     android:orientation="vertical" >
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <EditText
-            android:id="@+id/edName"
-            android:layout_width="212dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="98dp"
-            android:contentDescription="Player Enter Your Name"
-            android:ems="10"
-            android:hint="Type your name"
-            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/start"
-            android:layout_marginTop="30dp"
-            android:text="Rudolph wonna Run?"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="#FF0000"/>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/gamename"
+            android:textColor="#FF0000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/edName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="Player Enter Your Name"
+            android:background="@drawable/textbox"
+            android:hint="  Type your name"
+            android:cursorVisible="true"
+            android:layout_marginLeft="20dp"
+            android:inputType="textPersonName" >
+        </EditText>
 
         <Button
             android:id="@+id/go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/edName"
-            android:layout_toRightOf="@+id/edName"
-          
-            android:text="Go !" android:soundEffectsEnabled="false"/>
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/buttonok"
+             />
+    </LinearLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
+  <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.27"
-        android:visibility="visible" >
-
-        <Button
-            android:id="@+id/start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="76dp"
-            android:text="Run !" 
-            android:visibility="invisible"/>
-
-        <TextView
+        android:orientation="vertical" >
+      <TextView
             android:id="@+id/txtNewPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,19 +55,30 @@
             android:layout_alignParentTop="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FF0000" />
+    </LinearLayout>
 
-        <ToggleButton
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button1x"
+            android:visibility="visible" />
+        
+         <ToggleButton
             android:id="@+id/toggleMusic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="28dp"
             android:checked="true"
-            android:text="of" 
             android:soundEffectsEnabled="true" 
-            android:drawableTop="@drawable/music"/>
+            android:background="@drawable/musicon"/>
+       
+    </LinearLayout>
 
-    </RelativeLayout>
+   
 
 </LinearLayout>
