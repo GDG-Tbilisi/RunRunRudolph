@@ -125,11 +125,16 @@ public class Game extends Activity {
 			song.stop();
 			song.release();
 			time.setText("");
-		
+			Bundle bundle = getIntent().getExtras();
+			
+			String player = bundle.getString("name");
+			
 			Toast.makeText(getBaseContext(),
 					"Time is up! Your score is: " + counter, 5000).show();
 			
 			Intent resultIntent = new Intent("ge.gtug.RESULTS");
+			resultIntent.putExtra("name", player);
+			resultIntent.putExtra("score", counter);
 			updateInDb(counter);
 			startActivity(resultIntent);
 			finish();

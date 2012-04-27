@@ -50,15 +50,19 @@ public class Results extends Activity {
 		shareBtn.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				String zaza = null;
-				String koba = null;
-
+				
+				Bundle bundle = getIntent().getExtras();
+				
+				String player = bundle.getString("name");
+				int score = bundle.getInt("score");
+				
 				Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 				sharingIntent.setType("text/plain");
 				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,
-						"I've made %s steps in 10 seconds. ??..??");
+						"Android Game RunRunRudolph \n Player "+ player +" made "+score+" steps in 10 seconds.");
 				sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
 						"runRunRudolph!");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_SHORTCUT_INTENT, "goo.gl");
 				startActivity(Intent.createChooser(sharingIntent, null));
 
 			}
@@ -72,10 +76,7 @@ public class Results extends Activity {
 		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
 		PlayersManager players = new PlayersManager(this);
 		list = (ListView) findViewById(R.id.list);
-		// myDbHelper = new DBHelper(this);
-		// myDbHelper.openDataBase();
 		result = players.getStatistics();
-		// myDbHelper.close();
 		playersList = new ArrayList<PlayersEntry>();
 		playersList = prepareList(result);
 
@@ -128,21 +129,5 @@ public class Results extends Activity {
 
 			return super.onOptionsItemSelected(item);
 		}
-	}
-
-	public void share() {
-		Intent i = null;
-		String msg = "My score is: ";
-
-		i = new Intent(Intent.ACTION_SEND);
-		i.setType("text/plain");
-
-		i.putExtra(Intent.EXTRA_TEXT, msg + s.counter + " http://google.com");
-		i.putExtra(
-				Intent.EXTRA_SUBJECT,
-				getResources().getString(R.string.share) + " \""
-						+ "Share title" + "\" : "
-						+ getResources().getString(R.string.app_name));
-		startActivity(Intent.createChooser(i, this.getString(R.string.share)));
 	}
 }
