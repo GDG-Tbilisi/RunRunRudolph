@@ -51,11 +51,11 @@ public final class R {
         public static final int restart=0x7f070013;
         public static final int result=0x7f070000;
         public static final int shareButton=0x7f070010;
-        public static final int start=0x7f07000c;
+        public static final int start=0x7f07000d;
         public static final int textView1=0x7f070009;
         public static final int time=0x7f070001;
-        public static final int toggleMusic=0x7f07000d;
-        public static final int txtNewPlayer=0x7f07000e;
+        public static final int toggleMusic=0x7f07000e;
+        public static final int txtNewPlayer=0x7f07000c;
     }
     public static final class layout {
         public static final int about=0x7f030000;

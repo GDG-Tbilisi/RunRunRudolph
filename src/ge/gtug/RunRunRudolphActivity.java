@@ -30,14 +30,7 @@ public class RunRunRudolphActivity extends Activity {
 		final EditText edName = (EditText) findViewById(R.id.edName);
 		createDB();
 		toggleMusic = (ToggleButton) findViewById(R.id.toggleMusic);
-		toggleMusic.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				toggleMusic.setButtonDrawable(R.drawable.musicoff);
-				
-			}
-		});
+		
 		
 		start.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -50,7 +43,7 @@ public class RunRunRudolphActivity extends Activity {
 				Intent gameIntent = new Intent("ge.gtug.GAME");
 				gameIntent.putExtra("name", edName.getText().toString());
 				gameIntent.putExtra("sound", toggleMusic.getText());
-				startActivity(gameIntent);
+					startActivity(gameIntent);
 			}
 
 			public void createPlayer(String name) {
@@ -67,15 +60,13 @@ public class RunRunRudolphActivity extends Activity {
 					if (score > 0) {
 						start.setVisibility(View.VISIBLE);
 						txtNewPlayer.setText("Hello [ " + name
-								+ " ] your best score is [ " + score
-								+ " ] \n Click Start and try again");
+								+ " ] your best score is " + score);
 					} else {
 						start.setVisibility(View.VISIBLE);
 						txtNewPlayer
 								.setText("Hey [ "
 										+ name
-										+ " ] you are a new Player \n best score on this device is [ "
-										+ score + " ] \n click Run and start!");
+										+ " ] you are a new Player \n click Play  and start!");
 					}
 				} else {
 					txtNewPlayer.setText(" Please Type your Name ");

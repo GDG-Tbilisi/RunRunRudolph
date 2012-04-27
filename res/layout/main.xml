@@ -26,11 +26,10 @@
             android:id="@+id/edName"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:contentDescription="Player Enter Your Name"
-            android:background="@drawable/textbox"
-            android:hint="  Type your name"
-            android:cursorVisible="true"
             android:layout_marginLeft="20dp"
+            android:contentDescription="Player Enter Your Name"
+            android:cursorVisible="true"
+            android:hint="  Type your name"
             android:inputType="textPersonName" >
         </EditText>
 
@@ -39,15 +38,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/buttonok"
-             />
+            android:background="@drawable/buttonok" />
     </LinearLayout>
 
-  <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-      <TextView
+
+        <TextView
             android:id="@+id/txtNewPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +56,7 @@
             android:textColor="#FF0000" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -66,19 +65,26 @@
             android:id="@+id/start"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="33dp"
             android:background="@drawable/button1x"
-            android:visibility="visible" />
-        
-         <ToggleButton
+            android:visibility="invisible" android:layout_marginLeft="120dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+         android:layout_gravity="center_vertical|center_horizontal">
+
+        <ToggleButton
             android:id="@+id/toggleMusic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:soundEffectsEnabled="true" 
-            android:background="@drawable/musicon"/>
-       
+            android:layout_marginRight="52dp"
+            android:drawableTop="@drawable/music"
+            android:layout_alignParentTop="true"
+            android:soundEffectsEnabled="true"
+            android:text="of" android:layout_gravity="center_vertical|center_horizontal" android:layout_marginLeft="130dp" android:layout_marginTop="20dp"/>
     </LinearLayout>
-
-   
 
 </LinearLayout>
