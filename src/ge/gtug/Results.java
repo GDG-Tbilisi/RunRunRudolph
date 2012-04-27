@@ -24,11 +24,12 @@ import android.widget.ListView;
 
 public class Results extends Activity {
 	DBHelper myDbHelper;
-	
+
 	Button shareBtn;
 	ListView list;
 	EditText et;
 	private List playersList;
+	Button btnRestart;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,16 @@ public class Results extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.results);
 		shareBtn = (Button) findViewById(R.id.shareButton);
+		btnRestart = (Button) findViewById(R.id.btnRestart);
+
 		loadStatistics();
-		
-			
-		
+
+		btnRestart.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+			    finish();
+			  }
+		});
+
 		shareBtn.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -48,10 +55,11 @@ public class Results extends Activity {
 
 				Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 				sharingIntent.setType("text/plain");
-				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I've made %s steps in 10 seconds. ??..??");
-				sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "runRunRudolph!");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+						"I've made %s steps in 10 seconds. ??..??");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+						"runRunRudolph!");
 				startActivity(Intent.createChooser(sharingIntent, null));
-
 
 			}
 
@@ -64,10 +72,10 @@ public class Results extends Activity {
 		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
 		PlayersManager players = new PlayersManager(this);
 		list = (ListView) findViewById(R.id.list);
-		myDbHelper = new DBHelper(this);
-		myDbHelper.openDataBase();
+		// myDbHelper = new DBHelper(this);
+		// myDbHelper.openDataBase();
 		result = players.getStatistics();
-		myDbHelper.close();
+		// myDbHelper.close();
 		playersList = new ArrayList<PlayersEntry>();
 		playersList = prepareList(result);
 
@@ -105,20 +113,20 @@ public class Results extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
-			case R.id.about:
-				startActivity(new Intent(this, About.class));
-				return true;
-			case R.id.restart:
-	
-	//			Intent restart = new Intent("ge.gtug.GAME");
-	//			startActivity(restart);
-				Intent intent = new Intent(Intent.ACTION_MAIN);
-				intent.addCategory(Intent.CATEGORY_HOME);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				startActivity(intent);
-			default:
-				
-		return super.onOptionsItemSelected(item);
+		case R.id.about:
+			startActivity(new Intent(this, About.class));
+			return true;
+		case R.id.restart:
+
+			// Intent restart = new Intent("ge.gtug.GAME");
+			// startActivity(restart);
+			Intent intent = new Intent(Intent.ACTION_MAIN);
+			intent.addCategory(Intent.CATEGORY_HOME);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(intent);
+		default:
+
+			return super.onOptionsItemSelected(item);
 		}
 	}
 

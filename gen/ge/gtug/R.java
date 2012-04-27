@@ -26,7 +26,7 @@ public final class R {
     }
     public static final class id {
         public static final int about=0x7f070012;
-        public static final int button2=0x7f070011;
+        public static final int btnRestart=0x7f070011;
         public static final int edName=0x7f070009;
         public static final int go=0x7f07000c;
         public static final int list=0x7f07000f;

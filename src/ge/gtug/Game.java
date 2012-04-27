@@ -84,9 +84,7 @@ public class Game extends Activity {
 		        case MotionEvent.ACTION_DOWN: 
 		            // finger touches the screen
 		    			result.setText("Steps made: " + ++counter);
-		    			if(sound.equals("ON") && !song.isPlaying()){
-		    				song.start();
-		    			}
+		    			
 		            break;
 		        case MotionEvent.ACTION_MOVE:
 		            // finger moves on the screen
@@ -127,12 +125,14 @@ public class Game extends Activity {
 			song.stop();
 			song.release();
 			time.setText("");
+		
 			Toast.makeText(getBaseContext(),
 					"Time is up! Your score is: " + counter, 5000).show();
 			
 			Intent resultIntent = new Intent("ge.gtug.RESULTS");
 			updateInDb(counter);
 			startActivity(resultIntent);
+			finish();
 		}
 	}
 

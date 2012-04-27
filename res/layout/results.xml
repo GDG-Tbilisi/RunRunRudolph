@@ -7,21 +7,24 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="match_parent"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.22"
-        android:text="Statistics"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:text="Results"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="65px" android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="35px" />
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:layout_weight="1.39" 
-        android:soundEffectsEnabled="true" 
-        android:smoothScrollbar="true" 
-        android:scrollbarStyle="insideInset" >
+        android:layout_height="286dp"
+        android:layout_weight="3.86"
+        android:scrollbarStyle="insideInset"
+        android:smoothScrollbar="true"
+        android:soundEffectsEnabled="true" >
+
     </ListView>
 
     <LinearLayout
@@ -36,13 +39,13 @@
             android:layout_weight="0.05"
             android:text="Share Score" />
 
-
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnRestart"
             android:layout_width="wrap_content"
-            android:layout_height="79dp"
+            android:layout_height="84dp"
             android:layout_weight="0.05"
             android:text="Restart" />
+
     </LinearLayout>
 
 </LinearLayout>
