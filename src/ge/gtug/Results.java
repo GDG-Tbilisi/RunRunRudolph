@@ -23,8 +23,6 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class Results extends Activity {
-	DBHelper myDbHelper;
-
 	Button shareBtn;
 	ListView list;
 	EditText et;
@@ -64,7 +62,6 @@ public class Results extends Activity {
 						"runRunRudolph!");
 				sharingIntent.putExtra(android.content.Intent.EXTRA_SHORTCUT_INTENT, "goo.gl");
 				startActivity(Intent.createChooser(sharingIntent, null));
-
 			}
 
 		});
@@ -101,13 +98,12 @@ public class Results extends Activity {
 		return playersList;
 	}
 
-	public Game s = new Game();
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
 		super.onCreateOptionsMenu(menu);
-		MenuInflater koba = getMenuInflater();
-		koba.inflate(R.menu.menu, menu);
+		MenuInflater menInf = getMenuInflater();
+		menInf.inflate(R.menu.menu, menu);
 		return true;
 	}
 
@@ -118,9 +114,6 @@ public class Results extends Activity {
 			startActivity(new Intent(this, About.class));
 			return true;
 		case R.id.restart:
-
-			// Intent restart = new Intent("ge.gtug.GAME");
-			// startActivity(restart);
 			Intent intent = new Intent(Intent.ACTION_MAIN);
 			intent.addCategory(Intent.CATEGORY_HOME);
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
