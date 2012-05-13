@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import ge.gtug.R;
 import ge.gtug.db.DBHelper;
 import ge.gtug.entry.PlayersEntry;
 

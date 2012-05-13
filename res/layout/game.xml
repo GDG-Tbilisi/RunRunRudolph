@@ -26,53 +26,7 @@
         android:text="TIME"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
-    
-     <ImageView
-        android:id="@+id/pirveli"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/pirveli" />
-
-    <ImageView
-        android:id="@+id/meore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/meore" />
-
-    <ImageView
-        android:id="@+id/mesame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/mesame" />
-
-    <ImageView
-        android:id="@+id/meotxe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/meotxe" />
-
-    <ImageView
-        android:id="@+id/mexute"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/mexute" />
-     <ImageView
-        android:id="@+id/meeqvse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/meeqvse" />
+  
       <ImageView
         android:id="@+id/meshvide"
         android:layout_width="wrap_content"

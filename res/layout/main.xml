@@ -84,7 +84,8 @@
             android:drawableTop="@drawable/music"
             android:layout_alignParentTop="true"
             android:soundEffectsEnabled="true"
-            android:text="of" android:layout_gravity="center_vertical|center_horizontal" android:layout_marginLeft="130dp" android:layout_marginTop="20dp"/>
+            
+            android:text="of" android:layout_gravity="center_vertical|center_horizontal" android:layout_marginLeft="130dp" android:layout_marginTop="20dp" android:checked="true"/>
     </LinearLayout>
 
 </LinearLayout>

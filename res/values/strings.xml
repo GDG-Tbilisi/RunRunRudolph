@@ -5,5 +5,6 @@
     <string name="app_name">RunRunRudolph</string>
     <string name="share">Share your result !</string>
     <string name="OldUser">Hello  your best score is  Click Start and try again;</string>
+    <string name="InsertPlayer">INSERT INTO players Values (?,'0')</string>
 
 </resources>

@@ -26,7 +26,7 @@ public class Game extends Activity {
 	// final EditText edName = (EditText) findViewById(R.id.edName);
 
 	public TextView result, time;
-	public ImageView first, second, third, fourth, fifth, sixth, seventh;
+	public ImageView /*first, second, third, fourth, fifth, sixth, */seventh;
 	int[] drawableIds = { R.drawable.pirveli, R.drawable.meore,
 			R.drawable.mesame, R.drawable.meotxe, R.drawable.mexute,
 			R.drawable.meeqvse, R.drawable.meshvide };
@@ -55,12 +55,7 @@ public class Game extends Activity {
 		result = (TextView) findViewById(R.id.result);
 		result.setText("Steps made: " + counter);
 		
-		first = (ImageView) findViewById(R.id.pirveli);
-		second = (ImageView) findViewById(R.id.meore);
-		third = (ImageView) findViewById(R.id.mesame);
-		fourth = (ImageView) findViewById(R.id.meotxe);
-		fifth = (ImageView) findViewById(R.id.mexute);
-		sixth = (ImageView) findViewById(R.id.meeqvse);
+	
 		seventh = (ImageView) findViewById(R.id.meshvide);
 		time = (TextView) findViewById(R.id.time);
 		final MyCounter timer = new MyCounter(10000, 1000);
