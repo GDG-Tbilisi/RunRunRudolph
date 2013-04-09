@@ -41,6 +41,8 @@ public class PlayersServiceImpl implements PlayersService{
 	@Override
 	public int getCurrentPoint(String player) {
 		Cursor cursor = playersDao.getCurrentPoint(player);
+		if(cursor.getCount() == 0) return 0;
+		
 		return cursor.getInt(0);
 	}
 

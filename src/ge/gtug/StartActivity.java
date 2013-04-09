@@ -35,7 +35,8 @@ public class StartActivity extends Activity {
 			public void onClick(View v) {
 
 				String name = edName.getText().toString().trim();
-				if (name != null || !name.equals("")) { // checkPlayer(name);
+				if (name != null || !name.equals("")) { 
+					// checkPlayer(name);
 					createPlayer(name);
 				}
 				Intent gameIntent = new Intent("ge.gtug.GAME");
@@ -71,8 +72,7 @@ public class StartActivity extends Activity {
 			}
 
 			private int checkPlayer(String name) {
-				int curPoint = startHelper.getCurrentPoint(name);
-				return curPoint;
+				return startHelper.getCurrentPoint(name);
 			}
 		});
 	}
