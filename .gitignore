@@ -8,3 +8,6 @@
 *.so
 /bin
 /gen
+.classpath
+.project
+/.settings
