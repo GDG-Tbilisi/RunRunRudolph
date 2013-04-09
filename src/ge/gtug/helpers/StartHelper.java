@@ -6,6 +6,7 @@ import android.content.Context;
 import android.util.Log;
 
 public class StartHelper {
+	
 	private static final String TAG = "StartHelper";
 
 	PlayersService playerService;
@@ -23,13 +24,6 @@ public class StartHelper {
 
 	public int getCurrentPoint(String player) {
 		Log.i(TAG, "getCurrentPoint");
-		/*
-		 * SQLiteDatabase db = this.getReadableDatabase(); String[] pl =
-		 * {player}; int curScore = 0; Cursor c =
-		 * db.rawQuery("select point from players where name = ?",pl); if
-		 * (c.getCount()!=0) { c.moveToFirst(); curScore = c.getInt(0); }
-		 * c.close(); db.close(); return curScore;
-		 */
-		return 0;
+		return playerService.getCurrentPoint(player);
 	}
 }

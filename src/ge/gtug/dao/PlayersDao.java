@@ -13,7 +13,7 @@ public interface PlayersDao {
 	 * @param player
 	 * @return score of player
 	 */
-	public int getCurrentPoint(String player);
+	public Cursor getCurrentPoint(String player);
 	
 	/**
 	 * create new player 
@@ -26,7 +26,7 @@ public interface PlayersDao {
 	 * 
 	 * @param counter
 	 * @param player
-	 * @return operation success status if updated true 
+	 * @return void 
 	 */
-	public boolean updateScores(int counter, String player);
+	public void updateScores(int counter, String player);
 }

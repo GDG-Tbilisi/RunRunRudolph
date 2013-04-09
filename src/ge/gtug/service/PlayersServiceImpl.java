@@ -8,9 +8,12 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public class PlayersServiceImpl implements PlayersService{
+	
+	private static final String TAG = "PlayersServiceImpl";
 	PlayersDao playersDao;
 	
 	public PlayersServiceImpl(Context context) {
@@ -37,8 +40,8 @@ public class PlayersServiceImpl implements PlayersService{
 
 	@Override
 	public int getCurrentPoint(String player) {
-		// TODO Auto-generated method stub
-		return 0;
+		Cursor cursor = playersDao.getCurrentPoint(player);
+		return cursor.getInt(0);
 	}
 
 	@Override
@@ -49,7 +52,12 @@ public class PlayersServiceImpl implements PlayersService{
 	
 	@Override
 	public boolean updateScores(int counter, String player) {
-		// TODO Auto-generated method stub
+		int currentPoint = getCurrentPoint(player);
+		Log.i(TAG,"current score of player : " + player + " is : " + currentPoint);
+		if (currentPoint < counter) { // update here
+			playersDao.updateScores(counter, player);
+			return true;
+		}
 		return false;
 	}
 

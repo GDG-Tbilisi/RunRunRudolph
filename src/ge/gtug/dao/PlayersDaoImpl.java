@@ -28,9 +28,18 @@ public class PlayersDaoImpl extends DBHelper implements PlayersDao {
 	}
 
 	@Override
-	public int getCurrentPoint(String player) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Cursor getCurrentPoint(String player) {
+
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] pl = { player };
+		Cursor cursor = db.rawQuery("select point from players where name = ?",
+				pl);
+		if (cursor.getCount() != 0) {
+			cursor.moveToFirst();
+		}
+		db.close();
+
+		return cursor;
 	}
 
 	@Override
@@ -55,9 +64,11 @@ public class PlayersDaoImpl extends DBHelper implements PlayersDao {
 	}
 
 	@Override
-	public boolean updateScores(int counter, String player) {
-		// TODO Auto-generated method stub
-		return false;
+	public void updateScores(int counter, String player) {
+		Object[] c = { counter, player };
+		SQLiteDatabase db = this.getReadableDatabase();
+		db.execSQL("update players set point = ? where name = ?", c);
+		db.close();
 	}
 
 }
