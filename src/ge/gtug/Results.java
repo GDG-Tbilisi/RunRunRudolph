@@ -1,7 +1,6 @@
 package ge.gtug;
 
 import ge.gtug.bl.PlayersManager;
-import ge.gtug.db.DBHelper;
 import ge.gtug.entry.PlayersEntry;
 
 import java.util.ArrayList;
@@ -14,12 +13,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class Results extends Activity {

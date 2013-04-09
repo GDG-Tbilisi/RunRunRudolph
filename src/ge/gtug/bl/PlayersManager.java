@@ -1,13 +1,13 @@
 package ge.gtug.bl;
 
+import ge.gtug.db.DBHelper;
+import ge.gtug.entry.PlayersEntry;
+
 import java.util.ArrayList;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import ge.gtug.R;
-import ge.gtug.db.DBHelper;
-import ge.gtug.entry.PlayersEntry;
 
 public class PlayersManager extends DBHelper{
 

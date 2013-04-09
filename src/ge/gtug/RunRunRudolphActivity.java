@@ -1,16 +1,15 @@
 package ge.gtug;
 
-import java.io.IOException;
-
 import ge.gtug.bl.PlayersManager;
 import ge.gtug.db.DBHelper;
+
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
