@@ -1,7 +1,8 @@
 package ge.gtug;
 
-import ge.gtug.bl.PlayersManager;
 import ge.gtug.db.DBHelper;
+import ge.gtug.helpers.PlayersManager;
+import ge.gtug.helpers.StartHelper;
 
 import java.io.IOException;
 
@@ -14,15 +15,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class RunRunRudolphActivity extends Activity {
+public class StartActivity extends Activity {
 	/** Called when the activity is first created. */
 	ToggleButton toggleMusic;
-
+	StartHelper p;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		final PlayersManager p = new PlayersManager(this);
+		p = new StartHelper(this);
 		final Button start = (Button) findViewById(R.id.start);
 		Button go = (Button) findViewById(R.id.go);
 		final TextView txtNewPlayer = (TextView) findViewById(R.id.txtNewPlayer);

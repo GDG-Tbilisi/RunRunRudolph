@@ -1,8 +1,10 @@
 package ge.gtug.entry;
 
 public class PlayersEntry {
-	String name;
-	String point;
+	
+	private String name;
+	private String point;
+	
 	public String getName() {
 		return name;
 	}

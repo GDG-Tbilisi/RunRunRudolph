@@ -1,24 +1,30 @@
-package ge.gtug.bl;
+package ge.gtug.helpers;
 
+import ge.gtug.Results;
 import ge.gtug.db.DBHelper;
 import ge.gtug.entry.PlayersEntry;
+import ge.gtug.service.PlayersService;
+import ge.gtug.service.PlayersServiceImpl;
 
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class PlayersManager extends DBHelper{
-
+	private static final String TAG = "PlayersManager";
+	PlayersService playerService;
+	
 	public PlayersManager(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		if(playerService == null){
+			playerService = new PlayersServiceImpl(context);
+		}
 	}
 
-		//DBHelper db = new DBHelper(this);
-	public void createPlayer(String name) {
-		// TODO Auto-generated method stub
+/*	public void createPlayer(String name) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		String[] n = {name};
 		Cursor c = db.rawQuery("select count(*) from players where name = ?",n);
@@ -30,9 +36,11 @@ public class PlayersManager extends DBHelper{
 		c.close();
 		db.close();
 		
-	}
+	}*/
 	public ArrayList<PlayersEntry> getStatistics(){
+		Log.i(TAG,"getStatistics");
 		
+		/*
 		SQLiteDatabase db = this.getReadableDatabase();
 		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
 		String[] columns = { "name","point" };
@@ -50,12 +58,13 @@ public class PlayersManager extends DBHelper{
 			c.moveToNext();
 		}
 		c.close();
-		db.close();
-		return result;
+		db.close();*/
+		
+		
+		return playerService.getStatistics();
 	}
 
-	public void updateScores(int counter, String player) {
-		// TODO Auto-generated method stub
+	/*public void updateScores(int counter, String player) {
 		int currentPoint = getCurrentPoint(player);
 		Object[] c = {counter,player};
 		if(currentPoint < counter){
@@ -64,12 +73,11 @@ public class PlayersManager extends DBHelper{
 			db.execSQL("update players set point = ? where name = ?",c);
 			db.close();
 		}
-	}
+	}*/
 
 	public int getCurrentPoint(String player) {
-		// TODO Auto-generated method stub
-		SQLiteDatabase db = this.getReadableDatabase();
-		String[] columns = {"point" };
+		Log.i(TAG,"getCurrentPoint");
+		/*SQLiteDatabase db = this.getReadableDatabase();
 		String[] pl = {player};
 		int curScore = 0;
 		Cursor c = db.rawQuery("select point from players where name = ?",pl);
@@ -79,6 +87,7 @@ public class PlayersManager extends DBHelper{
 		}
 		c.close();
 		db.close();
-		return curScore;
+		return curScore;*/
+		return 0;
 	}
 }

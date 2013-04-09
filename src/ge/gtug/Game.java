@@ -1,6 +1,6 @@
 package ge.gtug;
 
-import ge.gtug.bl.PlayersManager;
+import ge.gtug.helpers.GameHelper;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class Game extends Activity {
 	// final EditText edName = (EditText) findViewById(R.id.edName);
-
+	GameHelper players; 
 	public TextView result, time;
 	public ImageView /*first, second, third, fourth, fifth, sixth, */seventh;
 	int[] drawableIds = { R.drawable.pirveli, R.drawable.meore,
@@ -28,7 +28,7 @@ public class Game extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
-		
+		players = new GameHelper(this);
 		Bundle bundle = getIntent().getExtras();
 		
 		String player = bundle.getString("name");
@@ -55,7 +55,7 @@ public class Game extends Activity {
 	
 		
 		
-	PlayersManager players = new PlayersManager(this);
+	
 
 	public boolean onTouchEvent(MotionEvent event) {
 		  int eventaction = event.getAction();

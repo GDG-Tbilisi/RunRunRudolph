@@ -1,7 +1,9 @@
 package ge.gtug;
 
-import ge.gtug.bl.PlayersManager;
 import ge.gtug.entry.PlayersEntry;
+import ge.gtug.helpers.PlayersManager;
+import ge.gtug.service.PlayersService;
+import ge.gtug.service.PlayersServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class Results extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.results);
 		shareBtn = (Button) findViewById(R.id.shareButton);
@@ -65,9 +67,9 @@ public class Results extends Activity {
 	}
 
 	private void loadStatistics() {
-		// TODO Auto-generated method stub
-		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
+		ArrayList<PlayersEntry> result;
 		PlayersManager players = new PlayersManager(this);
+		
 		list = (ListView) findViewById(R.id.list);
 		result = players.getStatistics();
 		playersList = new ArrayList<PlayersEntry>();
@@ -115,7 +117,6 @@ public class Results extends Activity {
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			startActivity(intent);
 		default:
-
 			return super.onOptionsItemSelected(item);
 		}
 	}
