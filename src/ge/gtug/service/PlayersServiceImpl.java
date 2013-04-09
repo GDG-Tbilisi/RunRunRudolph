@@ -1,6 +1,5 @@
 package ge.gtug.service;
 
-import ge.gtug.Results;
 import ge.gtug.dao.PlayersDao;
 import ge.gtug.dao.PlayersDaoImpl;
 import ge.gtug.entry.PlayersEntry;
@@ -12,18 +11,20 @@ import android.database.Cursor;
 import android.util.Log;
 
 public class PlayersServiceImpl implements PlayersService{
-	Context c ;
+	PlayersDao playersDao;
+	
 	public PlayersServiceImpl(Context context) {
-		this.c = context;
+		playersDao = new PlayersDaoImpl(context);
 	}
 
 	@Override
 	public ArrayList<PlayersEntry> getStatistics() {
 		Log.w(PlayersServiceImpl.class.getName(), "Service call");
-		System.out.println("Service Call");
-		PlayersDao playersDao = new PlayersDaoImpl(c);
+
 		ArrayList<PlayersEntry> result = new ArrayList<PlayersEntry>();
-		Cursor c = playersDao.getStatistics(); 
+		
+		Cursor c = playersDao.getStatistics();
+		
 		for(int i=0;i<c.getCount();i++){
 			String name = c.getString(0).toString();
 			String point = c.getString(1).toString();
@@ -33,5 +34,25 @@ public class PlayersServiceImpl implements PlayersService{
 		c.close();
 		return result;
 	}
+
+	@Override
+	public int getCurrentPoint(String player) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean createPlayer(String name) {
+		boolean operationStatus = playersDao.createPlayer(name);
+		return operationStatus;
+	}
+	
+	@Override
+	public boolean updateScores(int counter, String player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 
 }

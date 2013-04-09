@@ -1,7 +1,7 @@
 package ge.gtug;
 
 import ge.gtug.entry.PlayersEntry;
-import ge.gtug.helpers.PlayersManager;
+import ge.gtug.helpers.ResultsHelper;
 import ge.gtug.service.PlayersService;
 import ge.gtug.service.PlayersServiceImpl;
 
@@ -26,7 +26,7 @@ public class Results extends Activity {
 	EditText et;
 	private List playersList;
 	Button btnRestart;
-
+	ResultsHelper players;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -68,7 +68,7 @@ public class Results extends Activity {
 
 	private void loadStatistics() {
 		ArrayList<PlayersEntry> result;
-		PlayersManager players = new PlayersManager(this);
+		players = new ResultsHelper(this);
 		
 		list = (ListView) findViewById(R.id.list);
 		result = players.getStatistics();
@@ -81,7 +81,6 @@ public class Results extends Activity {
 	}
 
 	private List<PlayersEntry> prepareList(ArrayList<PlayersEntry> result) {
-		// TODO Auto-generated method stub
 		for (PlayersEntry entry : result) {
 			playersList.add(entry.getName() + " - " + entry.getPoint());
 		}
@@ -98,7 +97,6 @@ public class Results extends Activity {
 
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
 		super.onCreateOptionsMenu(menu);
 		MenuInflater menInf = getMenuInflater();
 		menInf.inflate(R.menu.menu, menu);
@@ -106,7 +104,6 @@ public class Results extends Activity {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
 		case R.id.about:
 			startActivity(new Intent(this, About.class));

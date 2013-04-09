@@ -1,7 +1,6 @@
 package ge.gtug;
 
 import ge.gtug.db.DBHelper;
-import ge.gtug.helpers.PlayersManager;
 import ge.gtug.helpers.StartHelper;
 
 import java.io.IOException;
@@ -18,24 +17,23 @@ import android.widget.ToggleButton;
 public class StartActivity extends Activity {
 	/** Called when the activity is first created. */
 	ToggleButton toggleMusic;
-	StartHelper p;
+	StartHelper startHelper;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		p = new StartHelper(this);
+		startHelper = new StartHelper(this);
 		final Button start = (Button) findViewById(R.id.start);
 		Button go = (Button) findViewById(R.id.go);
 		final TextView txtNewPlayer = (TextView) findViewById(R.id.txtNewPlayer);
 		final EditText edName = (EditText) findViewById(R.id.edName);
 		createDB();
 		toggleMusic = (ToggleButton) findViewById(R.id.toggleMusic);
-		
-		
+
 		start.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 
-				// TODO Auto-generated method stub
 				String name = edName.getText().toString().trim();
 				if (name != null || !name.equals("")) { // checkPlayer(name);
 					createPlayer(name);
@@ -43,12 +41,11 @@ public class StartActivity extends Activity {
 				Intent gameIntent = new Intent("ge.gtug.GAME");
 				gameIntent.putExtra("name", edName.getText().toString());
 				gameIntent.putExtra("sound", toggleMusic.getText());
-					startActivity(gameIntent);
+				startActivity(gameIntent);
 			}
 
 			public void createPlayer(String name) {
-				// TODO Auto-generated method stub
-				p.createPlayer(name);
+				startHelper.createPlayer(name);
 			}
 		});
 
@@ -74,7 +71,7 @@ public class StartActivity extends Activity {
 			}
 
 			private int checkPlayer(String name) {
-				int curPoint = p.getCurrentPoint(name);
+				int curPoint = startHelper.getCurrentPoint(name);
 				return curPoint;
 			}
 		});

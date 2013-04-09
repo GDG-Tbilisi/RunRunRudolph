@@ -16,13 +16,12 @@ public class GameHelper {
 	
 
 	public GameHelper(Context context) {
-		if (playerService != null) {
+		if (playerService == null) {
 			playerService = new PlayersServiceImpl(context);
 		}
 	}
 
 	
-	public GameHelper(){}
 	
 	public void updateScores(int counter, String player) {
 		
